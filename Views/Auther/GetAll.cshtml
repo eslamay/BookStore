@@ -1,0 +1,41 @@
+﻿@model IEnumerable<BookStore.Models.Domain.Auther>
+@{
+}
+
+<div class="container pt-5">
+	<div class="row">
+		<div class="col-md-6">
+			<a class="btn btn-dark" href="/Auther/Add">Add More</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<h2>Authors</h2>
+			<table class="table table-striped table-bordered table-dark">
+				<thead>
+					<tr>
+						<th>Name</th>
+					
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach(var item in Model)
+					{
+						<tr>
+							<td>@item.AutherName</td>
+							<td>
+								<a class="btn btn-success" href="/Auther/Update?id=@item.Id"><i class="bi bi-pen"></i> Edit</a> |
+								<a class="btn btn-danger" onclick="return window.confirm('Are you sure?')" href="/Auther/Delete?id=@item.Id"><i class="bi bi-trash"></i> Delete</a>
+							</td>
+						</tr>
+				    }
+				</tbody>
+
+			</table>
+		</div>
+	</div>
+</div>
+
+
+
